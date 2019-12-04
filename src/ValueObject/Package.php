@@ -108,7 +108,7 @@ final class Package
         return $this->language;
     }
 
-    public function getNumberOfDependent(): int
+    public function getNumberOfDependents(): int
     {
         return $this->numberOfDependent;
     }

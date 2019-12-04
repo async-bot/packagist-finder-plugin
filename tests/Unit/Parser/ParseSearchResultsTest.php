@@ -30,6 +30,17 @@ class ParseSearchResultsTest extends TestCase
         $this->assertSame('https://packagist.org/search.json?q=monolog&page=2', $this->searchResults->getNextPageUrl());
     }
 
+    public function testNextPageUrlIsParsedCorrectlyWhenNotAvailable(): void
+    {
+        $searchResults = (new ParseSearchResults())
+            ->parse(
+                decode(file_get_contents(TEST_DATA_DIR . '/Response/search-async-bot-name-without-next-link.json'), true),
+            )
+        ;
+
+        $this->assertNull($searchResults->getNextPageUrl());
+    }
+
     public function testSearchResultsAreParsedCorrectly(): void
     {
         $results = iterator_to_array($this->searchResults);

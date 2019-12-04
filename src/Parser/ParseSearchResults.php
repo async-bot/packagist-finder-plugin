@@ -15,7 +15,7 @@ final class ParseSearchResults
     {
         return new SearchResults(
             $searchResults['total'],
-            $searchResults['next'],
+            $searchResults['next'] ?? null,
             ...$this->parseSearchResults($searchResults['results']),
         );
     }

@@ -1,1 +1,1 @@
-# packagist-finder-plugin
+# Packagist-finder-plugin

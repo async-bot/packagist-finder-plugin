@@ -38,4 +38,12 @@ final class Plugin
     {
         return (new SearchByName($this->httpClient))->retrieve($name);
     }
+
+    /**
+     * @return Promise<SearchResults>
+     */
+    public function searchByTag(string $tag): Promise
+    {
+        return (new SearchByName($this->httpClient))->retrieve($tag);
+    }
 }
